@@ -12,6 +12,7 @@
 		9196C8501DBF6D1300CC2EB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9196C84E1DBF6D1300CC2EB0 /* Main.storyboard */; };
 		9196C8521DBF6D1300CC2EB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9196C8511DBF6D1300CC2EB0 /* Assets.xcassets */; };
 		9196C8551DBF6D1300CC2EB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9196C8531DBF6D1300CC2EB0 /* LaunchScreen.storyboard */; };
+		91E407531DC7B39900FA8BD0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91E407521DC7B39900FA8BD0 /* GoogleService-Info.plist */; };
 		97EC6FED2B076931C4163D69 /* Pods_FirebaseSocialLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DB0B62BA870860889F697B /* Pods_FirebaseSocialLogin.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		9196C8541DBF6D1300CC2EB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9196C8561DBF6D1300CC2EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9196C85C1DBFA1F200CC2EB0 /* FirebaseSocialLogin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FirebaseSocialLogin.entitlements; sourceTree = "<group>"; };
+		91E407521DC7B39900FA8BD0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD12F7793110BF77F5AD1DD5 /* Pods-FirebaseSocialLogin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseSocialLogin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseSocialLogin/Pods-FirebaseSocialLogin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,6 +71,7 @@
 				9196C8511DBF6D1300CC2EB0 /* Assets.xcassets */,
 				9196C8531DBF6D1300CC2EB0 /* LaunchScreen.storyboard */,
 				9196C8561DBF6D1300CC2EB0 /* Info.plist */,
+				91E407521DC7B39900FA8BD0 /* GoogleService-Info.plist */,
 			);
 			path = FirebaseSocialLogin;
 			sourceTree = "<group>";
@@ -120,7 +123,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Stanley Pan";
 				TargetAttributes = {
 					9196C8461DBF6D1300CC2EB0 = {
@@ -161,6 +164,7 @@
 				9196C8551DBF6D1300CC2EB0 /* LaunchScreen.storyboard in Resources */,
 				9196C8521DBF6D1300CC2EB0 /* Assets.xcassets in Resources */,
 				9196C8501DBF6D1300CC2EB0 /* Main.storyboard in Resources */,
+				91E407531DC7B39900FA8BD0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +268,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -314,6 +319,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -348,7 +354,7 @@
 				DEVELOPMENT_TEAM = P48JT8XFF3;
 				INFOPLIST_FILE = FirebaseSocialLogin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.iMoment.FirebaseSocialLoginRemove;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.iMoment.FirebaseSocialLogin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -363,7 +369,7 @@
 				DEVELOPMENT_TEAM = P48JT8XFF3;
 				INFOPLIST_FILE = FirebaseSocialLogin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.iMoment.FirebaseSocialLoginRemove;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.iMoment.FirebaseSocialLogin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
