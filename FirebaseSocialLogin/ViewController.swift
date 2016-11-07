@@ -40,6 +40,18 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
         
         return button
     }()
+    
+    lazy var customGoogleLoginButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .orange
+        button.setTitle("Custom Google Sign In here", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(handleCustomGoogleLogin), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,10 +61,12 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
         view.addSubview(facebookLoginButton)
         view.addSubview(customFacebookLoginButton)
         view.addSubview(googleLoginButton)
+        view.addSubview(customGoogleLoginButton)
        
         setupFacebookLoginButton()
         setupCustomFacebookLoginButton()
         setupGoogleLoginButton()
+        setupCustomGoogleLoginButton()
     }
     
     // iOS constraints x, y, width, height
@@ -75,6 +89,13 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
         googleLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         googleLoginButton.widthAnchor.constraint(equalToConstant: view.frame.width - 32).isActive = true
         googleLoginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    func setupCustomGoogleLoginButton() {
+        customGoogleLoginButton.topAnchor.constraint(equalTo: googleLoginButton.bottomAnchor, constant: 16).isActive = true
+        customGoogleLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        customGoogleLoginButton.widthAnchor.constraint(equalToConstant: view.frame.width - 32).isActive = true
+        customGoogleLoginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     func handleCustomFBLogin() {
@@ -129,6 +150,10 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
             
             print(result!)
         }
+    }
+    
+    func handleCustomGoogleLogin() {
+        
     }
 }
 
