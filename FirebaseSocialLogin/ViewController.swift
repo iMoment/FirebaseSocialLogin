@@ -11,7 +11,7 @@ import FBSDKLoginKit
 import Firebase
 import GoogleSignIn
 
-class ViewController: UIViewController, FBSDKLoginButtonDelegate {
+class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
     
     lazy var facebookLoginButton: FBSDKLoginButton = {
         let button = FBSDKLoginButton()
@@ -43,6 +43,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
         
         view.addSubview(facebookLoginButton)
         view.addSubview(customFacebookLoginButton)

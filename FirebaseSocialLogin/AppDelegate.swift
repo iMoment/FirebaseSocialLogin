@@ -31,6 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         
+        GIDSignIn.sharedInstance().handle(url,
+            sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!,
+            annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        
         return handled
     }
 
