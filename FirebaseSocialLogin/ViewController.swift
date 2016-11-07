@@ -33,15 +33,24 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         return button
     }()
+    
+    let googleLoginButton: GIDSignInButton = {
+        let button = GIDSignInButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.addSubview(facebookLoginButton)
         view.addSubview(customFacebookLoginButton)
+        view.addSubview(googleLoginButton)
        
         setupFacebookLoginButton()
         setupCustomFacebookLoginButton()
+        setupGoogleLoginButton()
     }
     
     // iOS constraints x, y, width, height
@@ -57,6 +66,13 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         customFacebookLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         customFacebookLoginButton.widthAnchor.constraint(equalToConstant: view.frame.width - 32).isActive = true
         customFacebookLoginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    func setupGoogleLoginButton() {
+        googleLoginButton.topAnchor.constraint(equalTo: customFacebookLoginButton.bottomAnchor, constant: 16).isActive = true
+        googleLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        googleLoginButton.widthAnchor.constraint(equalToConstant: view.frame.width - 32).isActive = true
+        googleLoginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     func handleCustomFBLogin() {
