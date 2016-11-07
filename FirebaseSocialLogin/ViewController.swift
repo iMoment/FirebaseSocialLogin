@@ -9,31 +9,54 @@
 import UIKit
 import FBSDKLoginKit
 import Firebase
+import GoogleSignIn
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate {
+    
+    lazy var facebookLoginButton: FBSDKLoginButton = {
+        let button = FBSDKLoginButton()
+        button.delegate = self
+        button.readPermissions = ["email", "public_profile"]
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
+    lazy var customFacebookLoginButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .blue
+        button.setTitle("Custom FB Login here", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(handleCustomFBLogin), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        let loginButton = FBSDKLoginButton()
         
-        view.addSubview(loginButton)
-        //frames are obsolete, use constraints instead
-        loginButton.frame = CGRect(x: 16, y: 50, width: view.frame.width - 32, height: 50)
-        
-        loginButton.delegate = self
-        loginButton.readPermissions = ["email", "public_profile"]
-        
-        //TODO: Custom login button
-        let customFBButton = UIButton(type: .system)
-        customFBButton.backgroundColor = .blue
-        customFBButton.frame = CGRect(x: 16, y: 116, width: view.frame.width - 32, height: 50)
-        customFBButton.setTitle("Custom FB Login here", for: .normal)
-        customFBButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        customFBButton.setTitleColor(.white, for: .normal)
-        view.addSubview(customFBButton)
-        
-        customFBButton.addTarget(self, action: #selector(handleCustomFBLogin), for: .touchUpInside)
+        view.addSubview(facebookLoginButton)
+        view.addSubview(customFacebookLoginButton)
+       
+        setupFacebookLoginButton()
+        setupCustomFacebookLoginButton()
+    }
+    
+    // iOS constraints x, y, width, height
+    func setupFacebookLoginButton() {
+        facebookLoginButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+        facebookLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        facebookLoginButton.widthAnchor.constraint(equalToConstant: view.frame.width - 32).isActive = true
+        facebookLoginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    func setupCustomFacebookLoginButton() {
+        customFacebookLoginButton.topAnchor.constraint(equalTo: facebookLoginButton.bottomAnchor, constant: 16).isActive = true
+        customFacebookLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        customFacebookLoginButton.widthAnchor.constraint(equalToConstant: view.frame.width - 32).isActive = true
+        customFacebookLoginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     func handleCustomFBLogin() {
