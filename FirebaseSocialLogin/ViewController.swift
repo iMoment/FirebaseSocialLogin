@@ -153,7 +153,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
     }
     
     func handleCustomGoogleLogin() {
-        
+        GIDSignIn.sharedInstance().signIn()
     }
 }
 
