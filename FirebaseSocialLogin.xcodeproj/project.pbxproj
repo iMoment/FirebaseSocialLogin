@@ -106,6 +106,7 @@
 				9196C8451DBF6D1300CC2EB0 /* Resources */,
 				578DB68AAFEBAF0851661E1E /* [CP] Embed Pods Frameworks */,
 				AA83E0804C876F0C78110F7A /* [CP] Copy Pods Resources */,
+				9113DE871DE4637C00ABC6CD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -185,6 +186,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FirebaseSocialLogin/Pods-FirebaseSocialLogin-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		9113DE871DE4637C00ABC6CD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 0cea9914b58c1c3950f69e1d75083c1bf8325938 59a5e46789e220564183682c6cc353af83f450ba9ecdb8a801bde7efd7c23292";
 		};
 		9430ED99E0DDE3F28435C4A5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
