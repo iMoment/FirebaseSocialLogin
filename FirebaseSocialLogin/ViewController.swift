@@ -10,6 +10,7 @@ import UIKit
 import FBSDKLoginKit
 import Firebase
 import GoogleSignIn
+import TwitterKit
 
 class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
     
@@ -52,6 +53,19 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
         
         return button
     }()
+    
+    let twitterLoginButton: TWTRLogInButton = {
+        let button = TWTRLogInButton(logInCompletion: { (session, error) in
+            if let err = error {
+                print("Failed to login via Twitter: ", err)
+                return
+            }
+            print("Successfully logged in using Twitter")
+        })
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,11 +76,13 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
         view.addSubview(customFacebookLoginButton)
         view.addSubview(googleLoginButton)
         view.addSubview(customGoogleLoginButton)
+        view.addSubview(twitterLoginButton)
        
         setupFacebookLoginButton()
         setupCustomFacebookLoginButton()
         setupGoogleLoginButton()
         setupCustomGoogleLoginButton()
+        setupTwitterLoginButton()
     }
     
     // iOS constraints x, y, width, height
@@ -96,6 +112,13 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
         customGoogleLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         customGoogleLoginButton.widthAnchor.constraint(equalToConstant: view.frame.width - 32).isActive = true
         customGoogleLoginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    func setupTwitterLoginButton() {
+        twitterLoginButton.topAnchor.constraint(equalTo: customGoogleLoginButton.bottomAnchor, constant: 16).isActive = true
+        twitterLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        twitterLoginButton.widthAnchor.constraint(equalToConstant: view.frame.width - 32).isActive = true
+        twitterLoginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     func handleCustomFBLogin() {
@@ -156,8 +179,3 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDel
         GIDSignIn.sharedInstance().signIn()
     }
 }
-
-
-
-
-
